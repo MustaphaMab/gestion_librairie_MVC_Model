@@ -1,0 +1,1 @@
+SELECT Titre_livre, Raison_sociale, Date_achat, Prix_achat, Nbr_exemplaires FROM commander JOIN livres ON commander.Id_Livre = livres.Id_Livre JOIN fournisseurs ON commander.Id_fournisseur = fournisseurs.Id_fournisseur;
