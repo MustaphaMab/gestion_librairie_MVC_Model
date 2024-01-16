@@ -53,7 +53,6 @@ class Model
         try {
             $requete = $this->bd->prepare('SELECT Nom_auteur FROM livres');
             $requete->execute();
-            
         } catch (PDOException $e) {
             die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
         }
@@ -81,7 +80,6 @@ class Model
         try {
             $requete = $this->bd->prepare('SELECT Titre_livre FROM livres ORDER BY Titre_livre ASC');
             $requete->execute();
-
         } catch (PDOException $e) {
             die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
         }
@@ -101,32 +99,31 @@ class Model
         }
     }
 
-// ************************************** PAR EDITEUR *********************************
+    // ************************************** PAR EDITEUR *********************************
 
-public function get_livres_par_editeur()
-{
-    try {
-        $requete = $this->bd->prepare('SELECT Editeur  FROM livres ORDER BY Editeur  ASC');
-        $requete->execute();
-
-    } catch (PDOException $e) {
-        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
-    }
-    return $requete->fetchAll(PDO::FETCH_OBJ);
-}
-
-public function get_livres_par_editeur_resultat()
-{
-    $choixTitre = $_POST['select_titre']; {
+    public function get_livres_par_editeur()
+    {
         try {
-            $requete = $this->bd->prepare("SELECT * FROM livres WHERE Editeur = :a");
-            $requete->execute(array(':a' => $choixTitre));
+            $requete = $this->bd->prepare('SELECT Editeur  FROM livres ORDER BY Editeur  ASC');
+            $requete->execute();
         } catch (PDOException $e) {
             die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
         }
         return $requete->fetchAll(PDO::FETCH_OBJ);
     }
-}
+
+    public function get_livres_par_editeur_resultat()
+    {
+        $choixEditeur = $_POST['select_editeur']; {
+            try {
+                $requete = $this->bd->prepare("SELECT * FROM livres WHERE Editeur = :a");
+                $requete->execute(array(':a' => $choixEditeur));
+            } catch (PDOException $e) {
+                die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+            }
+            return $requete->fetchAll(PDO::FETCH_OBJ);
+        }
+    }
 
     // ----------------------------------PARTIE FOURNISSEUR ---------------------------------------------------------------------------------------------//
     public function get_all_fournisseurs()
@@ -139,59 +136,57 @@ public function get_livres_par_editeur_resultat()
         }
         return $requete->fetchAll(PDO::FETCH_OBJ);
     }
-// ************************************** PAR RAISON SOCIALE *********************************
+    // ************************************** PAR RAISON SOCIALE *********************************
 
     public function get_fournisseurs_par_raison_sociale()
-{
-    try {
-        $requete = $this->bd->prepare('SELECT Raison_sociale FROM fournisseurs ORDER BY Raison_sociale ASC');
-        $requete->execute();
-
-    } catch (PDOException $e) {
-        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
-    }
-    return $requete->fetchAll(PDO::FETCH_OBJ);
-}
-
-public function get_fournisseurs_par_raison_sociale_resultat()
-{
-    $choixTitre = $_POST['select_raison_sociale']; {
+    {
         try {
-            $requete = $this->bd->prepare("SELECT * FROM fournisseurs WHERE Raison_sociale = :a");
-            $requete->execute(array(':a' => $choixTitre));
+            $requete = $this->bd->prepare('SELECT Raison_sociale FROM fournisseurs ORDER BY Raison_sociale ASC');
+            $requete->execute();
         } catch (PDOException $e) {
             die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
         }
         return $requete->fetchAll(PDO::FETCH_OBJ);
     }
-}
 
-// ************************************** PAR LOCALITE *********************************
-
-public function get_fournisseurs_par_localite()
-{
-    try {
-        $requete = $this->bd->prepare('SELECT Localite FROM fournisseurs ORDER BY Localite ASC');
-        $requete->execute();
-
-    } catch (PDOException $e) {
-        die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+    public function get_fournisseurs_par_raison_sociale_resultat()
+    {
+        $choixTitre = $_POST['select_raison_sociale']; {
+            try {
+                $requete = $this->bd->prepare("SELECT * FROM fournisseurs WHERE Raison_sociale = :a");
+                $requete->execute(array(':a' => $choixTitre));
+            } catch (PDOException $e) {
+                die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+            }
+            return $requete->fetchAll(PDO::FETCH_OBJ);
+        }
     }
-    return $requete->fetchAll(PDO::FETCH_OBJ);
-}
 
-public function get_fournisseurs_par_localite_resultat()
-{
-    $choixTitre = $_POST['select_localite']; {
+    // ************************************** PAR LOCALITE *********************************
+
+    public function get_fournisseurs_par_localite()
+    {
         try {
-            $requete = $this->bd->prepare("SELECT * FROM Localite = :a");
-            $requete->execute(array(':a' => $choixTitre));
+            $requete = $this->bd->prepare('SELECT Localite FROM fournisseurs ORDER BY Localite ASC');
+            $requete->execute();
         } catch (PDOException $e) {
             die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
         }
         return $requete->fetchAll(PDO::FETCH_OBJ);
     }
-}
+
+    public function get_fournisseurs_par_localite_resultat()
+    {
+        $choixTitre = $_POST['select_localite'];
+        try {
+            $requete = $this->bd->prepare("SELECT * FROM fournisseurs WHERE Localite = :a");
+            $requete->execute(array(':a' => $choixTitre));
+        } catch (PDOException $e) {
+            die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+        }
+
+        return $requete->fetchAll(PDO::FETCH_OBJ);
+    }
 
     // ----------------------------------PARTIE COMMANDES --------------------------------------------//
     public function get_all_commandes()
@@ -205,33 +200,37 @@ public function get_fournisseurs_par_localite_resultat()
         return $requete->fetchAll(PDO::FETCH_OBJ);
     }
 
-     // ----------------------------------PARTIE FORMULAIRE --------------------------------------------//
+    // ----------------------------------PARTIE ? --------------------------------------------//
 
-     public function get_formulaire_inscription()
-     {
-         try {
-            $requete = $this->bd->prepare('SELECT * FROM membres ');
-            $requete->execute();
-      
-         } catch (PDOException $e) {
-             die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
-         }
-         return $requete->fetchAll(PDO::FETCH_OBJ);
-     }
+    // public function get_formulaire_inscription()
+    // {
+    //     $username = $_POST['E_mail'];
+    //     $password = $_POST['MdP'];
+    //     try {
 
-     // ----------------------------------PARTIE  --------------------------------------------//
+    //         $requete = $this->bd->prepare("SELECT * FROM utilisateur WHERE mail=:mail AND MdP=:MdP");
+    //         $requete->execute();
+    //     } catch (PDOException $e) {
+    //         die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+    //     }
+    //     return $requete->fetchAll(PDO::FETCH_OBJ);
+    // }
 
-     public function get_login()
-     {
-         try {
-            $requete=['identification'=>get_login($_POST['nom'],$_POST['MdP'])];
-            $this->render(login,$data);
-      
-         } catch (PDOException $e) {
-             die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
-         }
-         return $requete->fetchAll(PDO::FETCH_OBJ);
-     }
+    // ----------------------------------PARTIE LOGIN --------------------------------------------//
 
-     
+
+    public function get_login()
+    {
+        $mail = $_POST['E_mail'];
+        $MdP = $_POST['MdP'];
+
+        try {
+            $requete = $this->bd->prepare("SELECT * FROM utilisateur WHERE E_mail = :E_mail AND MdP = :MdP");
+
+            $requete->execute(array(":MdP" => $MdP, ":E_mail" => $mail));
+        } catch (PDOException $e) {
+            die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage());
+        }
+        return $requete->fetch(PDO::FETCH_OBJ);
+    }
 }
