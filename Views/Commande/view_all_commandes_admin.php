@@ -20,7 +20,7 @@
         <td><?=$c->Prix_achat?></td>;
         <td><?=$c->Nbr_exemplaires?></td>;
         
-        
+        <td><a href="read.php?id=' .  '" class="btn btn-info"><i class="bi bi-eye-fill"></i></a></td>';
         
        
     </tr>

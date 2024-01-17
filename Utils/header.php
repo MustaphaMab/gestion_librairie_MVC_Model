@@ -1,7 +1,13 @@
+<?php
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
-<head>
+<head >
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,86 +20,35 @@
 </head>
 
 <body>
-  <?php
-  session_start();
+  <header class="text-bg-light p-3">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary ml-5">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="?controller=home&action=home">Accueil</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+     </button>
+   
+ 
+<?php
+
+  if (isset($_SESSION['nom'])) {
+      if ($_SESSION['Statut'] === 'Admin') {
+        include('header_Admin.php');
+      } else {
+        include('header_Utilisateur.php');
+      }
+    } else {
+      echo "Vous n'etes pas connecté" ; 
+      ?>
+      <a class="btn btn-primary"  href="?controller=home&action=formulaire_connexion">CONNEXION</a> 
+<?php
+    }
+    
   ?>
-  <header>
-
-
-
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="?Controller=home">Accueil</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Livres
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="?controller=livres&action=all_livres">Tous les livres</a></li>
-                  <li><a class="dropdown-item" href="?controller=livres&action=livres_par_titre">Par titre</a></li>
-                  <li><a class="dropdown-item" href="?controller=livres&action=livres_par_auteur">Par auteur</a></li>
-                  <li><a class="dropdown-item" href="?controller=livres&action=livres_par_editeur">Par éditeur</a></li>
-                </ul>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Fournisseurs
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="?controller=fournisseurs&action=all_fournisseurs">Tous les fournisseurs</a></li>
-                  <li><a class="dropdown-item" href="?controller=fournisseurs&action=fournisseurs_par_raison_sociale">Par raison sociale</a></li>
-                  <li><a class="dropdown-item" href="#">Par localité</a></li>
-                  <li><a class="dropdown-item" href="#">Par pays</a></li>
-                </ul>
-              </li>
-
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Commandes
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="?controller=commandes&action=all_commandes">Toutes les commandes</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Par éditeur</a></li>
-                  <li><a class="dropdown-item" href="#">Par fournisseur</a></li>
-                  <li><a class="dropdown-item" href="#">Par date</a></li>
-                </ul>
-
-              </li>
-            </ul>
-            
-          </div>
-            <?php
-
-            // affichage du nom et prenom lors de la connection
-            // echo $_SESSION['username'];
-            if(isset ($_SESSION['nom'])){
-              echo "Bonjour , <br>". $_SESSION['nom'];
-            }
-              
-            ?>
-            <a href="?controller=home&action=formulaire_inscription">CONNEXION </a>
-            <br>
-
-            <!-- <a href="?controller=home&action=formulaire_deconnection">DECONNEXION</a> -->
-
-        </div>
-      
-
-
-
-    </nav>
-
-
   </header>
+  
 </body>
 
 </html>
+
+

@@ -2,7 +2,7 @@
 <?php 
 require_once('Models/Model.php');
 require_once('Controllers/Controller.php');
-require('Utils/header.php');
+require_once('Utils/header.php');
 
 $controllers=['home','livres','fournisseurs','commandes', 'users'];
 $controller_default='home';

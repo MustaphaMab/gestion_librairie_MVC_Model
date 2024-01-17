@@ -29,7 +29,7 @@
         <td><?=$l->Prix_vente?></td>
         <td><?=$l->Langue_livre?></td>
        
-    
+        youyou ! <td><a href="" class="btn btn-warning"><i class=" bi bi-pencil-fill"></i></a></td>
 
     </tr>
     <?php endforeach; ?>

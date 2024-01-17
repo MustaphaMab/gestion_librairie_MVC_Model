@@ -13,9 +13,9 @@ class Controller_home extends Controller
         $this->render('home');
     }
     // formulaire de connection
-    public function action_formulaire_inscription()
+    public function action_formulaire_connexion()
     {
-        $this->render('formulaire_inscription');
+        $this->render('formulaire_connexion');
     }
 
     // user connecte
@@ -26,18 +26,18 @@ class Controller_home extends Controller
 
     {
         $m = Model::get_model();
-        $data = ['identification' => $m->get_login($_POST)];
+        $data = ['identification' => $m->get_login()];
         $this->render("login", $data);
     }
 
 
-    public function action_deconnection()
+    public function action_deconnexion()
 
     // Effectue l'authentification en utilisant le modèle
 
     {
-        // $m = Model::get_model();
-        // $data = ['identification' => $m->get_login($_POST['E_mail'],$_POST['MdP'])];
-        $this->render("deconnection");
+        $m = Model::get_model();
+        $data = ['identification' => $m->get_login()];
+        $this->render("deconnexion");
     }
 }

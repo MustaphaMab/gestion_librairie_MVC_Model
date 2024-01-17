@@ -12,11 +12,24 @@ class Controller_livres extends Controller
         $this->render('home');
     }
 
+
+// ************************************************** Tout les livres ******************************************************
+
     public function action_all_livres()
     {
         $m=Model::get_model();
         $data=['livre'=>$m->get_all_livres()];
         $this->render("all_livres",$data);
+
+    }
+
+    // ************************************************** Tout les livres ADMIN ******************************************************
+
+    public function action_all_livres_admin()
+    {
+        $m=Model::get_model();
+        $data=['livre'=>$m->get_all_livres()];
+        $this->render("all_livres_admin",$data);
 
     }
 
