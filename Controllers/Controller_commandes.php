@@ -20,5 +20,15 @@ class Controller_commandes extends Controller
 
     }
 
+    public function action_all_commandes_update()
+    {
+        $m=Model::get_model();
+        $data=['commander'=>$m->get_all_commandes()];
+        $this->render("all_commandes_update",$data);
+
+    }
+
+
+
     
 }

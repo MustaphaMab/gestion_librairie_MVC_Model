@@ -33,6 +33,16 @@ class Controller_livres extends Controller
 
     }
 
+    // ************************************************** Tout les livres UPDATE ******************************************************
+
+    public function action_all_update_livre()
+    {
+        $m=Model::get_model();
+        $data=['livre'=>$m->get_all_update_livre()];
+        $this->render("all_update_livre",$data);
+
+    }
+
     // **************************************************livres par titre ******************************************************
     public function action_livres_par_titre()
     {

@@ -58,6 +58,19 @@ class Model
         return $requete->fetchAll(PDO::FETCH_OBJ);
     }
 
+
+    // ************************************** PAR ALL LIVRES UPDATE *********************************
+
+    public function get_all_update_livre()
+    {
+        try {
+            $requete = $this->bd->prepare('SELECT * FROM livres');
+            $requete->execute();
+        } catch (PDOException $e) {
+            die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+        }
+        return $requete->fetchAll(PDO::FETCH_OBJ);
+    }
     // ************************************** PAR AUTEUR *********************************
 
     public function get_livres_par_auteur()
