@@ -1,20 +1,20 @@
 <div class="collapse navbar-collapse " id="navbarSupportedContent">
-    
-    <ul >
+
+    <ul>
         <a class="btn btn-info" href="?controller=livres&action=all_livres_admin">Tous les livres</a>
 
     </ul>
-  
-    <ul >
+
+    <ul>
         <a class="btn btn-info" href="?controller=fournisseurs&action=all_fournisseurs_admin">Tous les Fournisseurs</a>
 
     </ul>
-    
-    <ul >
+
+    <ul>
         <a class="btn btn-info" href="?controller=commandes&action=all_commandes_admin">Toutes les commandes</a>
 
     </ul>
-    
+
 </div>
 
 
@@ -27,10 +27,9 @@
 //     echo "Statut et nom non définis dans la session";
 // }
 
-if(isset($_SESSION['nom'])){
-   
-    echo "Bonjour ".$_SESSION['prenom'] . ". Vous êtes : " . $_SESSION['Statut'];
+if (isset($_SESSION['nom'])) {
 
+    echo "Bonjour " . $_SESSION['prenom'] . ". Vous êtes : " . $_SESSION['Statut'];
 }
 
 

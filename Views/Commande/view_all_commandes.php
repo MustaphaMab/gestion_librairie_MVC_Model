@@ -1,30 +1,27 @@
-<div>
+<div class="container">
     <p> <?= isset($search)?'Recherche par '.$search:'' ?></p>
-<table id='table'>
+    <?php var_dump($data); ?>
+<table class="table table-bordered" id='table'>
     <thead>
-        <th>id_commande</th>
-        <th>Id_Livre</th>
-        <th>Id_fournisseur</th>
-        <th>Date_achat</th>
-        <th>Prix_achat</th>
-        <th>Nbr_exemplaires</th>
-        
-        
+        <th class="table-danger">id_commande</th>
+        <th class="table-danger">Nbr_exemplaires</th>
+        <th class="table-danger">Titre_livre</th>
+        <th class="table-danger">fournisseur</th>   
+        <th class="table-danger">Date_achat</th>
+        <th class="table-danger">Prix_achat</th>
+         
     </thead>
-    <?php  foreach($commander as $c ): ?>
+    <?php  foreach($commandes as $c ): ?>
     <tr>
-        <td><?=$c->id_commande?></td>   ; 
-        <td><?=$c->Id_Livre?></td>;
-        <td><?=$c->Id_fournisseur?></td>;
-        <td><?=$c->Date_achat?></td>;
-        <td><?=$c->Prix_achat?></td>;
-        <td><?=$c->Nbr_exemplaires?></td>;
-        
-        
-        
+        <td><?=$c->id_commande?></td>
+        <td><?=$c->Nbr_exemplaires?></td>
+        <th><?=$c->Titre_livre?></th>
+        <th><?=$c->Raison_sociale?></th>
+        <td><?=$c->Date_achat?></td>
+        <td><?=$c->Prix_achat?></td>
+       
        
     </tr>
     <?php endforeach; ?>
 </table>
-</div>            
-              
+</div>   

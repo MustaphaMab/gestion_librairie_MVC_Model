@@ -23,44 +23,28 @@ class Controller_livres extends Controller
 
     }
 
-    // ************************************************** Tout les livres ADMIN ******************************************************
+    // ************************************************** LIVRES PAR TITRE ******************************************************
 
-    public function action_all_livres_admin()
+    public function action_all_livres_par_titre()
     {
         $m=Model::get_model();
-        $data=['livre'=>$m->get_all_livres()];
-        $this->render("all_livres_admin",$data);
+        $data=['livre'=>$m->get_all_livres_par_titre()];
+        $this->render("all_livres_par_titre",$data);
 
     }
 
-    // ************************************************** Tout les livres UPDATE ******************************************************
+     // ************************************************** LIVRES PAR TITRE PAR RESULTAT ******************************************************
 
-    public function action_all_update_livre()
-    {
-        $m=Model::get_model();
-        $data=['livre'=>$m->get_all_update_livre()];
-        $this->render("all_update_livre",$data);
+     public function action_all_livres_par_titre_resultat()
+     {
+         $m=Model::get_model();
+         $data=['livre'=>$m->get_all_livres_par_titre_resultat()];
+         $this->render("all_livres_par_titre_resultat",$data);
+ 
+     }
 
-    }
+         // ************************************************** LIVRES PAR AUTEUR ******************************************************
 
-    // **************************************************livres par titre ******************************************************
-    public function action_livres_par_titre()
-    {
-        $m=Model::get_model();
-        $data=['livre'=>$m->get_livres_par_titre()];
-        $this->render("livres_par_titre",$data);
-
-    }
-    public function action_livres_par_titre_resultat()
-    {
-        $m=Model::get_model();
-        $data=['livre'=>$m->get_livres_par_titre_resultat()];
-        $this->render("livres_par_titre_resultat",$data);
-
-    }
-
-// ****************************************************************************************************************************
-// **************************************************livres par auteur ******************************************************
     public function action_livres_par_auteur()
     {
         $m=Model::get_model();
@@ -68,6 +52,9 @@ class Controller_livres extends Controller
         $this->render("livres_par_auteur",$data);
 
     }
+
+    // ************************************************** LIVRES PAR AUTEUR RESULTAT ******************************************************
+
     public function action_livres_par_auteur_resultat()
     {
         $m=Model::get_model();
@@ -75,27 +62,66 @@ class Controller_livres extends Controller
         $this->render("livres_par_auteur_resultat",$data);
 
     }
+         // ************************************************** LIVRES PAR AUTEUR ******************************************************
 
-// ****************************************************************************************************************************
+    public function action_livres_par_editeur()
+    {
+        $m=Model::get_model();
+        $data=['livre'=>$m->get_livres_par_editeur()];
+        $this->render("livres_par_editeur",$data);
 
-// **************************************************livres par éditeur ******************************************************
-public function action_livres_par_editeur()
-{
-    $m=Model::get_model();
-    $data=['livre'=>$m->get_livres_par_editeur()];
-    $this->render("livres_par_editeur",$data);
+    }
 
-}
-public function action_livres_par_editeur_resultat()
-{
-    $m=Model::get_model();
-    $data=['livre'=>$m->get_livres_par_editeur_resultat()];
-    $this->render("livres_par_editeur_resultat",$data);
+        // ************************************************** LIVRES PAR EDITEUR RESULTAT ******************************************************
 
-}
+        public function action_livres_par_editeur_resultat()
+        {
+            $m=Model::get_model();
+            $data=['livre'=>$m->get_livres_par_editeur_resultat()];
+            $this->render("livres_par_editeur_resultat",$data);
+    
+        }
+//====================================================================== FOURNISSEUR ==============================================================================
 
-// ****************************************************************************************************************************
+     // ************************************************** FOURNISSEUR PAR RAISON SOCIALE ******************************************************
 
+     public function action_fournisseurs_par_raison_sociale()
+     {
+         $m=Model::get_model();
+         $data=['fournisseurs'=>$m->get_fournisseurs_par_raison_sociale()];
+         $this->render("fournisseurs_par_raison_sociale",$data);
+ 
+     }
 
-}
+     
+ // ************************************************** FOURNISSEUR PAR RAISON SOCIALE RESULTAT ******************************************************
 
+ public function action_fournisseurs_par_raison_sociale_resultat()
+ {
+     $m=Model::get_model();
+     $data=['fournisseurs'=>$m->get_fournisseurs_par_raison_sociale_resultat()];
+     $this->render("fournisseurs_par_raison_sociale_resultat",$data);
+
+ }
+
+ 
+    // // ************************************************** Tout les livres ADMIN ******************************************************
+
+    // public function action_all_livres_admin()
+    // {
+    //     $m=Model::get_model();
+    //     $data=['livre'=>$m->get_all_livres()];
+    //     $this->render("all_livres_admin",$data);
+
+    // }
+
+    // // ************************************************** Tout les livres UPDATE ******************************************************
+
+    // public function action_all_update_livre()
+    // {
+    //     $m=Model::get_model();
+    //     $data=['livre'=>$m->get_all_update_livre()];
+    //     $this->render("all_update_livre",$data);
+
+    // }
+    }

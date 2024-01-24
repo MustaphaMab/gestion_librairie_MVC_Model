@@ -34,13 +34,11 @@ public function action_fournisseurs_par_raison_sociale()
 public function action_fournisseurs_par_raison_sociale_resultat()
 {
     $m=Model::get_model();
-    $data=['fourniseurs'=>$m->get_fournisseurs_par_raison_sociale_resultat()];
+    $data=['fournisseurs'=>$m->get_fournisseurs_par_raison_sociale_resultat()];
     $this->render("fournisseurs_par_raison_sociale_resultat",$data);
 
 }
 
-// ****************************************************************************************************************************
-    
 
 // ************************************************** PAR LOCALITE ******************************************************
 public function action_fournisseurs_par_localite()
@@ -53,11 +51,27 @@ public function action_fournisseurs_par_localite()
 public function action_fournisseurs_par_localite_resultat()
 {
     $m=Model::get_model();
-    $data=['fourniseurs'=>$m->get_fournisseurs_par_localite_resultat()];
+    $data=['fournisseurs'=>$m->get_fournisseurs_par_localite_resultat()];
     $this->render("fournisseurs_par_localite_resultat",$data);
 
 }
 
+
+// ************************************************** PAR PAYS ******************************************************
+public function action_fournisseurs_par_pays()
+{
+    $m=Model::get_model();
+    $data=['fournisseurs'=>$m->get_fournisseurs_par_pays()];
+    $this->render("fournisseurs_par_pays",$data);
+
+}
+public function action_fournisseurs_par_pays_resultat()
+{
+    $m=Model::get_model();
+    $data=['fournisseurs'=>$m->get_fournisseurs_par_pays_resultat()];
+    $this->render("fournisseurs_par_pays_resultat",$data);
+
+}
 // ****************************************************************************************************************************
 
 }

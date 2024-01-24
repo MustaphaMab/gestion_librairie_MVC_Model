@@ -29,7 +29,7 @@
                 <td><?= $l->Annee_edition ?></td>
                 <td><?= $l->Prix_vente ?></td>
                 <td><?= $l->Langue_livre ?></td>
-
+            
             </tr>
         <?php endforeach; ?>
     </table>
