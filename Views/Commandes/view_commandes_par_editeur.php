@@ -2,7 +2,7 @@
 
   <select name="select_editeur" class="form-select">
     <option selected>Choix par titre </option>
-    <?php foreach ($commandes as $f) : ?>
+    <?php foreach ($commander as $f) : ?>
       <option value="<?= $f->Editeur ?>"><?= $f->Editeur ?></option>
     <?php endforeach; ?>
   </select>

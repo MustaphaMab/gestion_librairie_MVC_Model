@@ -18,10 +18,11 @@ class Controller_commandes extends Controller
     public function action_all_commandes()
     {
         $m=Model::get_model();
-        $data=['commandes'=>$m->get_all_commandes()];
-        $this->render("all_commandes", $data);
+        $data=['commander'=>$m->get_all_commandes()];
+        $this->render("all_commandes",$data);
 
     }
+
 // ======================================================= PAR EDITEUR ===================================================================================
 
 
@@ -53,7 +54,7 @@ public function action_commandes_par_fournisseur_resultat()
 {
     $m=Model::get_model();
     $data=['commander'=>$m->get_commandes_par_fournisseur_resultat()];
-    $this->render("commandes_par_fournisseur",$data);
+    $this->render("commandes_par_fournisseur_resultat",$data);
 
 }
 
@@ -62,7 +63,7 @@ public function action_commandes_par_date()
 {
     $m=Model::get_model();
     $data=['commander'=>$m->get_commandes_par_date()];
-    $this->render("commandes_par_fournisseur",$data);
+    $this->render("commandes_par_date",$data);
 
 }
 public function action_commandes_par_date_resultat()

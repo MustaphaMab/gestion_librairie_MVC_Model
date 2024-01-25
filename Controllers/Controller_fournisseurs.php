@@ -12,6 +12,9 @@ class Controller_fournisseurs extends Controller
         $this->render('home');
     }
 
+// ======================================================================== UTILISATEUR =========================================================================================
+
+
 // ------------------------------------------------- FOURNISSEURS ----------------------------------------------------------
 
 // ******************************* ALL FOURNISSEURS ******************************************
@@ -72,6 +75,16 @@ public function action_fournisseurs_par_pays_resultat()
     $this->render("fournisseurs_par_pays_resultat",$data);
 
 }
-// ****************************************************************************************************************************
+// ======================================================================== ADMIN =========================================================================================
+
+public function action_all_fournisseurs_resultat()
+    {
+        $m=Model::get_model();
+        $data=['fournisseurs'=>$m->get_all_fournisseurs_resultat()];
+        $this->render("all_fournisseurs_resultat",$data);
+
+    }
+
+
 
 }

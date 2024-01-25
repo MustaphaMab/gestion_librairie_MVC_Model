@@ -12,6 +12,7 @@ class Controller_livres extends Controller
         $this->render('home');
     }
 
+// ======================================================================== UTILISATEUR =========================================================================================
 
 // ************************************************** Tout les livres ******************************************************
 
@@ -104,16 +105,19 @@ class Controller_livres extends Controller
 
  }
 
- 
+ // ======================================================================== ADMIN =========================================================================================
+
+
+
     // // ************************************************** Tout les livres ADMIN ******************************************************
 
-    // public function action_all_livres_admin()
-    // {
-    //     $m=Model::get_model();
-    //     $data=['livre'=>$m->get_all_livres()];
-    //     $this->render("all_livres_admin",$data);
+    public function action_all_livres_admin()
+    {
+        $m=Model::get_model();
+        $data=['livres'=>$m->get_all_livres_admin()];
+        $this->render("all_livres_admin",$data);
 
-    // }
+    }
 
     // // ************************************************** Tout les livres UPDATE ******************************************************
 

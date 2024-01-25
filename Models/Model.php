@@ -246,28 +246,24 @@ class Model
 
     // ************************************** ALL COMMANDES *********************************
 
-    // public function get_all_commandes()
-    // {
-    //     try {
-    //         $requete = $this->bd->prepare 
-    //         ('SELECT Titre_livre, Date_achat, Raison_sociale, Editeur, Prix_achat, Nbr_exemplaires 
-    //         FROM commander 
-    //         JOIN livres 
-    //         ON commander.Id_Livre = livres.Id_Livre 
-    //         JOIN fournisseurs 
-    //         ON commander.Id_fournisseur = fournisseurs.Id_fournisseur;');
-        
-    //         $requete->execute();
-    //     } catch (PDOException $e) {
-    //         die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
-    //     }
-    //     return $requete->fetchAll(PDO::FETCH_OBJ);
-    // }
 
     public function get_all_commandes()
     {
         try {
-         $requete = $this->bd->prepare('SELECT L.Titre_livre, F.Raison_sociale,C.id_commande, C.Date_achat, C.Prix_achat, C.Nbr_exemplaires FROM commander C JOIN livres L ON C.Id_Livre = L.Id_Livre JOIN fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur');
+         $requete = $this->bd->prepare
+         ('SELECT
+         L.Titre_livre,
+         F.Raison_sociale,
+         C.id_commande,
+         C.Date_achat,
+         C.Prix_achat,
+         C.Nbr_exemplaires
+     FROM
+         commander C
+     JOIN
+         livres L ON C.Id_Livre = L.Id_Livre
+     JOIN
+         fournisseurs F ON C.Id_fournisseur = F.Id_fournisseur;');
            
             $requete->execute();
             
@@ -356,19 +352,20 @@ $requete->execute(array(':a' => $choixFournisseur));
     }
 
 
-    // // *************************************************************************************
+    // ======================================================================== ADMIN =========================================================================================
+
     // // ************************************** PAR ALL LIVRES ADMIN *********************************
 
-    // public function get_all_livres_admin()
-    // {
-    //     try {
-    //         $requete = $this->bd->prepare('SELECT * FROM livres ORDER BY Titre_livre ASC');
-    //         $requete->execute();
-    //     } catch (PDOException $e) {
-    //         die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
-    //     }
-    //     return $requete->fetchAll(PDO::FETCH_OBJ);
-    // }
+    public function get_all_livres_admin()
+    {
+        try {
+            $requete = $this->bd->prepare('SELECT * FROM livres ORDER BY Titre_livre ASC');
+            $requete->execute();
+        } catch (PDOException $e) {
+            die('Erreur [' . $e->getCode() . '] : ' . $e->getMessage() . '</p>');
+        }
+        return $requete->fetchAll(PDO::FETCH_OBJ);
+    }
 
 
     // // ************************************** PAR ALL LIVRES UPDATE *********************************

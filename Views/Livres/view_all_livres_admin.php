@@ -16,7 +16,7 @@
             <th>Langue</th>
             <th scope="col" colspan="3">Actions</th>
         </thead>
-        <?php foreach ($livre as $l) : ?>
+        <?php foreach ($livres as $l) : ?>
             <tr>
 
                 <td><?= $l->ISBN ?></td>

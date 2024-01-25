@@ -19,13 +19,7 @@
 
 
 <?php
-// echo $_SESSION['Statut'] . ":" . $_SESSION['nom'];
 
-// if (isset($_SESSION['Statut']) && isset($_SESSION['nom'])) {
-//     echo $_SESSION['Statut'] . ":" . $_SESSION['nom'];
-// } else {
-//     echo "Statut et nom non définis dans la session";
-// }
 
 if (isset($_SESSION['nom'])) {
 

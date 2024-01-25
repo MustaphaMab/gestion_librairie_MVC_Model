@@ -20,7 +20,7 @@
                 <td><?= $c->Prix_achat ?></td>;
                 <td><?= $c->Nbr_exemplaires ?></td>;
 
-                <td><a href="?controller=all_commandes&action=all_commandes_update" class="btn btn-info"><i class="bi bi-eye-fill"></i></a></td>';
+               
 
 
             </tr>

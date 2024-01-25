@@ -13,7 +13,7 @@
         <th>Année d'édition</th>
         <th>Prix</th>
         <th>Langue</th>
-        <th scope="col" colspan="3">Actions</th>
+        
     </thead>
     <?php  foreach($livre as $l ): ?>
     <tr>
@@ -29,8 +29,6 @@
         <td><?=$l->Prix_vente?></td>
         <td><?=$l->Langue_livre?></td>
        
-    
-
     </tr>
     <?php endforeach; ?>
 </table>
